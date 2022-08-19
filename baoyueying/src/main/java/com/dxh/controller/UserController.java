@@ -37,4 +37,10 @@ public class UserController {
         return userService.queryUser(id);
     }
 
+    @Operation(summary = "测试",
+            description = "query")
+    @GetMapping(value = "/print")
+    public String print(){
+        return "asd";
+    }
 }
