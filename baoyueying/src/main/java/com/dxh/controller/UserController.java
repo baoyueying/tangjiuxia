@@ -1,14 +1,13 @@
 package com.dxh.controller;
 
 import com.dxh.domain.ResponseResult;
+import com.dxh.domain.entity.User;
 import com.dxh.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -37,10 +36,12 @@ public class UserController {
         return userService.queryUser(id);
     }
 
-    @Operation(summary = "测试",
-            description = "query")
-    @GetMapping(value = "/print")
-    public String print(){
-        return "asd";
+
+    @Operation(summary = "新增用户",
+            description = "add",
+            parameters = @Parameter(name = "User",description = "user"))
+    @PostMapping (value = "/addUser")
+    public ResponseResult toUser(@RequestBody User user){
+        return userService.addUser(user);
     }
 }
