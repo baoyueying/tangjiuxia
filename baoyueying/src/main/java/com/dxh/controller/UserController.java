@@ -33,7 +33,7 @@ public class UserController {
             description = "query",
             parameters = @Parameter(name = "id",description = "用户ID"))
     @GetMapping(value = "/query")
-    public ResponseResult queryUser(@RequestParam int id){
+    public ResponseResult queryUser(@RequestParam(value = "id", required = true) int id ){
         return userService.queryUser(id);
     }
 
