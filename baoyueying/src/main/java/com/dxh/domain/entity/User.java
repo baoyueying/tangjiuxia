@@ -10,7 +10,8 @@ public class User {
 
     //指定主键ID 并设置id类型为自增
     @TableId(type = IdType.AUTO)
-    private long id;
+    //注意此处Long为大写
+    private Long id;
 
     private String userName;
 
