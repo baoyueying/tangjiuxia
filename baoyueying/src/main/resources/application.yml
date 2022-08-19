@@ -1,6 +1,7 @@
 server:
   port: 8080
 spring:
+  # 开发环境热部署
   devtools:
     restart:
       enabled: true
@@ -14,6 +15,9 @@ spring:
     multipart:
       max-file-size: 2MB
       max-request-size: 5MB
+  # 控制访问图片的路径
+  mvc:
+    static-path-pattern: /images/**
 mybatis-plus:
   configuration:
     # 日志
